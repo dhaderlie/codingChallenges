@@ -1,0 +1,43 @@
+/* Create a function named sortEligibleMembers that receives ages as its parameter.
+
+The function should simulate a wine club membership sorting process. It will take an array of integers representing the ages of potential members and return a sorted array of those who are eligible to join the wine club (21 years or older).
+
+Follow these steps to implement the function:
+
+Create a variable to store the minimum age for eligibility (21).
+Filter the input array to keep only the eligible ages (use LINQ's Where method).
+Sort the filtered array in ascending order (use LINQ's OrderBy method).
+Return the sorted array of eligible ages.
+Parameter:
+
+ages (int[]): An array of integers representing the ages of potential members.
+The function returns an int[] containing the sorted ages of eligible members (21 or older) in ascending order.
+
+Note: Make sure to use LINQ methods for filtering and sorting to keep the solution concise. */
+
+using System;
+using System.Linq;
+					
+class SortEligibleMembers
+{
+	static void Main()
+	{
+		int[] ages = [18, 25, 30, 20, 22, 19, 35, 28, 21];
+		int[] sortedEligibleMembers = sortEligibleMembers(ages);
+		
+		Console.WriteLine("Sorted eligible members:");
+		foreach (var age in sortedEligibleMembers)
+		{
+			Console.WriteLine(age);
+		}
+	}
+	
+	public static int[] sortEligibleMembers(int[] ages) {
+		int minAge = 21;
+		int[] query = (from member in ages 
+					   where member >= minAge 
+					   orderby member 
+					   select member).ToArray();
+		return query; // Returns Sorted eligible members: 21 22 25 28 30 35
+	}
+}
