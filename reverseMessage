@@ -1,0 +1,38 @@
+/*
+Create a function named reverseMessage that receives message as its parameter.
+
+This function aims to help Molly, a resident of London, leave a cryptic message for her past self as part of her journey of self-discovery and courage. The message should have the order of the words reversed.
+
+To reverse the order of the words in the message:
+
+Split the message string into an array of words using the space character as the delimiter.
+Reverse the order of the words in the array.
+Join the words in the reversed array back into a single string, with each word separated by a space.
+Parameter:
+
+message (string): The message to be reversed, containing words separated by spaces.
+The function returns a string with the words from the original message in reverse order, separated by spaces.
+*/
+
+using System;
+					
+public class Program
+{
+	static void Main()
+	{
+		string originalString = "Hello World";
+		string reversedString = ReverseString(originalString);
+		Console.WriteLine($"Original: {originalString}");
+		Console.WriteLine($"Reversed: {reversedString}");
+	}
+	
+	static string ReverseString(string input)
+	{
+		char[] delimiters = new char[] {' ', '.'};
+		string[] splits = input.Split(delimiters);
+		
+		Array.Reverse(splits);
+		string revString = String.Join(" ", splits);
+		return revString;
+	}
+}
