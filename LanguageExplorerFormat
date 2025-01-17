@@ -1,0 +1,39 @@
+/*
+Create a function named formatLanguageWord that receives word and language as its parameters.
+
+This function aims to reverse the given word and embed it within a standard greeting format of the specified language.
+
+The function should perform the following steps:
+
+Reverse the characters in the word string.
+Create a formatted string that includes the language name, the text "Greeting: ", and the reversed word.
+Return the formatted string.
+For example, if the input is ("hello", "English"), the output should be "English Greeting: olleh". If the input is ("hola", "Spanish"), the output should be "Spanish Greeting: aloh".
+
+Parameters:
+
+word (string): The word to be reversed and embedded in the greeting format. It will consist of lowercase letters only.
+language (string): The name of the language for the greeting format.
+The function returns a string that represents the reversed word embedded within the specified language's greeting format.
+*/
+
+using System;
+class FormatLanguageWord {
+    public void Main()
+    {
+      string word = "Hello";
+      string language = "English";
+    }
+
+    public static string formatLanguageWord(string word, string language) {
+        char[] charArray = word.ToCharArray();
+        string reversedString = String.Empty;
+
+        for (int i = charArray.Length - 1; i > -1; i--)
+        {
+            reversedString += charArray[i];
+        }
+
+        return language + " Greeting: " + reversedString;
+    }
+}
